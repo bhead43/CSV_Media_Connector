@@ -43,7 +43,7 @@ export default class MyConnector implements Media.MediaConnector {
   ): Promise<Media.MediaPage> {
     // initialize DB on local server
     //  - this step is only needed for this POC, typically this would already be done in whatever service you're getting CSV details from
-    const initSheetDB = await this.runtime.fetch(`${this.runtime.options["baseURL"]}/initDB`, {
+    const initSheetDB = await this.runtime.fetch(`${this.runtime.options["baseURL"]}/resources/initDB`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -81,7 +81,7 @@ export default class MyConnector implements Media.MediaConnector {
 
     // CAN CHANGE THIS URL TO ANYTHING THAT RETURNS AN IMAGE
     const url = `${this.runtime.options["baseURL"]}/resources/dummyimg`;
-    
+
     const resp = await this.runtime.fetch(url, {
       method: "GET"
     });
